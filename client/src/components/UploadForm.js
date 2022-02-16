@@ -21,14 +21,13 @@ const UploadForm = () => {
             });
             console.log({ res });
             alert("sucess");
-        }catch(err){
+        } catch(err) {
             alert("failed");
             console.log(err);
         }
-    }
+    };
 
     return (
-
         <form onSubmit={onSubmit}>
             <label htmlFor="image">{fileName}</label>
             <input 
