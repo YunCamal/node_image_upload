@@ -23,7 +23,7 @@ const upload = multer({ storage, fileFilter: (req, file, cb) => {
 
 
 app.use("/uploads", express.static("uploads")); // 클라이언트에서 접속이 된다.
-app.post("/upload", upload.single("imageTest"), (req,res) => {
+app.post("/upload", upload.single("image"), (req,res) => {
     
     console.log(req.file);
     res.json(req.file);
