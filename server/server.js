@@ -12,15 +12,16 @@ const storage = multer.diskStorage({
         cb(null, `${uuid()}.${mime.extension(file.mimetype)}`),
   }) ;
 
-const upload = multer({ storage, fileFilter: (req, file, cb) => {
-    if(["image/jpeg", "image/jpeg"].includes(file.mimetype)) cb(null, true)
-    else cb( new Error("invalid file type."), false);
+const upload = multer({
+     storage, 
+     fileFilter: (req, file, cb) => {
+        if(["image/png", "image/jpeg"].includes(file.mimetype)) cb(null, true);
+        else cb( new Error("invalid file type."), false);
     },
     limits:{
         fileSize: 1024 * 1024 * 5, // 5MB
-    }
+    },
 });
-
 
 app.use("/uploads", express.static("uploads")); // 클라이언트에서 접속이 된다.
 
