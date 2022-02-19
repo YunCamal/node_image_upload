@@ -24,11 +24,6 @@ const upload = multer({
 });
 
 app.use("/uploads", express.static("uploads")); // 클라이언트에서 접속이 된다.
-
-app.post("/upload", upload.single("image"), (req,res) => {    
-    console.log(req.file);
-    res.json(req.file);
-});
-
+app.post("/upload", upload.single("image"), (req,res) => { res.json(req.file);});
 app.listen(PORT,() => console.log("Express server listening on PORT " + PORT));
 
